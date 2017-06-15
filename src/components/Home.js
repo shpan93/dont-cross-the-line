@@ -201,7 +201,7 @@ class Home extends React.Component {
     } else {
       ctx.rect(0, x, this.width, 1);
     }
-    ctx.fillStyle = "#ccc";
+    ctx.fillStyle = "#EEE";
     ctx.fill();
     ctx.closePath();
   }

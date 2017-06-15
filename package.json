@@ -4,6 +4,7 @@
   "description": "a very flexible boilerplate with react, redux, express, sass, eslint, stylelint and mocha",
   "main": "index.js",
   "scripts": {
+    "dev": "node webpack-dev-server.js & PORT=8001 NODE_ENV=development nodemon start.js -e js,jsx",
     "dev-windows": "node_modules/.bin/npm-run-all --parallel dev-wepback-windows dev-nodemon-windows",
     "dev-wepback-windows": "node webpack-dev-server.js",
     "dev-nodemon-windows": "set PORT=8001&&set NODE_ENV=development&&nodemon start.js -e js,jsx",
@@ -36,7 +37,9 @@
     "redux-devtools-dock-monitor": "^1.1.1",
     "redux-devtools-log-monitor": "^1.1.1",
     "redux-thunk": "^2.1.0",
-    "serialize-javascript": "^1.3.0"
+    "serialize-javascript": "^1.3.0",
+    "socket.io": "^2.0.3",
+    "socket.io-client": "^2.0.3"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.1",

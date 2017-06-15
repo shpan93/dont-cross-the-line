@@ -1,24 +1,17 @@
 /* eslint-disable no-console */
-import express from 'express';
 import { match, RouterContext } from 'react-router';
 import createHistory from 'react-router/lib/createMemoryHistory';
 import { Provider } from 'react-redux';
 import React from 'react';
-import routes from './src/config/routes';
+import routes from '../src/config/routes';
 import ReactDOM from 'react-dom/server';
-import configureStore from './src/redux/createStore';
-import Html from './src/html/Html';
+import configureStore from '../src/redux/createStore';
+import Html from '../src/html/Html';
 
 
-const server = express();
 
-server.use('/build', express.static(`${__dirname}/build`));
 
-server.get('/', (req, res) => {
-  res.redirect(301, '/en');
-});
-
-server.use((req, res) => {
+export default (req, res) => {
   const memoryHistory = createHistory(req.originalUrl);
   const { store, history } = configureStore(memoryHistory);
 
@@ -48,8 +41,6 @@ server.use((req, res) => {
       res.status(404).send('Not f ds sd ound');
     }
   });
-});
+};
 
-const port = process.env.PORT || 8000;
-server.listen(port);
-console.log(`Application listening on port ${port}`);
+
