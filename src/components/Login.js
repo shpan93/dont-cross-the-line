@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {push} from 'react-router-redux';
+import {setUserName} from '../redux/application/actions';
  import { enterRoom, subscribeUserJoined } from '../ws/handlers';
 
 class Login extends React.Component {
@@ -10,8 +11,10 @@ class Login extends React.Component {
     }
 
     componentDidMount(){
-        subscribeUserJoined(this.props.socket, (roomId) => {
-            this.props.push(`/game/${roomId}`)
+        subscribeUserJoined(this.props.socket, ({user}) => {
+            console.log(user);
+            this.props.push(`/game`);
+            this.props.setUserName(this.state.name);
         })
     }
 
@@ -37,4 +40,4 @@ export default connect(state => {
  return {
      socket: state.application.socket,
  }
-}, {push})(Login)
+}, {push, setUserName})(Login)

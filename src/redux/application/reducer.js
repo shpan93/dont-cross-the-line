@@ -5,6 +5,9 @@ export default (state = initialState, action) => {
         case 'SET_SOCKET': {
             newState.socket = action.payload;
         }
+        case 'SET_USERNAME': {
+            newState.name = action.payload;
+        }
     }
 
     return newState;

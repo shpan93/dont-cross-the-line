@@ -8,9 +8,9 @@ import { availableLocales } from './config';
 
 const routes = (
   <Route path="/" component={App}>
-    <Route path="game/:gameId" component={Home} />
-    <IndexRoute component={Login} />
+    <IndexRoute component={Home} />
     <Route path="404" component={_404} />
-  </Route>);
+  </Route>
+);
 
 export default routes;

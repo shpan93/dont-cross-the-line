@@ -18,8 +18,8 @@ server.use('/build', express.static(`${__dirname}/build`));
 //     res.redirect(301, '/en');
 // });
 
+wsHandler(io, server);
 server.use(applicationHandler);
-wsHandler(io);
 
 
 const port = process.env.PORT || 8000;
